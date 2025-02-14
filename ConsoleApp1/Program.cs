@@ -28,6 +28,9 @@ namespace ConsoleApp1
             /* 4. */
             Console.WriteLine($"{a} ve {b} ededlerinin EBOB-u {homework.FindEBOB(a,b)}");
 
+            /* 4.1 */
+            Console.WriteLine($"{a} ve {b} ededlerinin EKOB-u {homework.FindEKOB(a, b)}");
+
         }
     }
 
@@ -116,6 +119,20 @@ namespace ConsoleApp1
             }
 
             return 1;
+        }
+
+        public int FindEKOB(int a, int b)
+        {
+            int max = a > b ? a : b;
+
+
+            for (int i = max;; i+=max)
+            {
+                if (i%a == 0 && i%b == 0)
+                {
+                    return i;
+                }
+            }
         }
     }
 }
