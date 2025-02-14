@@ -12,6 +12,9 @@ namespace ConsoleApp1
             double[] nums = [1, 3, 5, 7];
             DateTime birthDate = new DateTime(1994, 6, 5);
 
+            int a = 5;
+            int b = 3;
+
             /* 1.*/
             homework.GetMinMax(out int max, out int min, numbers);
             Console.WriteLine($"max={max}, min = {min}");
@@ -21,6 +24,9 @@ namespace ConsoleApp1
 
             /* 3. */
             Console.WriteLine($"Your living days count is - {homework.CalculateAgeInDays(birthDate)}");
+
+            /* 4. */
+            Console.WriteLine($"{a} ve {b} ededlerinin EBOB-u {homework.FindEBOB(a,b)}");
 
         }
     }
@@ -93,5 +99,23 @@ namespace ConsoleApp1
 
             }
 
-}
+        /*4. Write a method called FindEBOB that takes two integers as
+         parameters and returns their greatest common divisor (EBOB).
+        4.1: for bonus Use the Euclidean Algorithm to solve this problem.*/
+
+        public int FindEBOB(int a, int b)
+        {
+            int min = a < b ? a : b;
+
+            for (int i = min; i > 0; i--)
+            {
+                if (a % i == 0 && b % i == 0)
+                {
+                    return i;
+                }
+            }
+
+            return 1;
+        }
+    }
 }
